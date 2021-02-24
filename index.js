@@ -97,6 +97,21 @@ const addIntern = [
 ]
 
 function start() {
+    // Generate/check for the dist folder
+    if (!fs.existsSync("./dist")) {
+        fs.mkdirSync("./dist");
+    }
+    // Create the start of the HTML file
+    const htmlHeader = `<!DOCTYPE html><html lang="en-us"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="Description"content="Javascript generated HTML that displays cards containing information about a team inputted by the user"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"><link rel="stylesheet" href="./style.css"><title>My Team</title></head><body><div class="header">My Team</div><div class="columns is-multiline">`;
+    fs.writeFileSync('./dist/main.html', htmlHeader);
+    // And CSS
+    const cssMin = `.header {font-size: 25px;font-weight: bold;text-align: center;margin: auto;background-color:lightcoral;padding: 20px 0px;}.columns {margin: 20px auto;display: flex;flex-direction: row;justify-content: center;}.column {display: flex;flex-direction: row;justify-content: center;}.card {width: 300px;margin: 10px;}.card-header {background-color: pink;}.card-content {background-color:lavenderblush;}.bar {padding: 2px;border-radius: 2px;border: gray solid 1px;}`;
+    fs.writeFileSync('./dist/style.css', cssMin);
+    
+    managerPath();
+}
+
+function managerPath() {
     inquirer.prompt(addManager).then(answer => {
         // Save the answer's to the manager HTML card
         branch();
@@ -132,7 +147,9 @@ function internPath() {
 }
 
 function finished() {
-    // Generate HTML and end
+    // Finish off the HTML file
+    const htmlFooter = `</div></body></html>`;
+    fs.writeFileSync('./dist/main.html', htmlFooter);
 }
 
 // Start the program
