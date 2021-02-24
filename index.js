@@ -115,6 +115,8 @@ function start() {
 function managerPath() {
     inquirer.prompt(addManager).then(answer => {
         // Save the answer's to the manager HTML card
+        const manager = new Manager(answer.officeNum);
+        fs.appendFileSync('./dist/main.html', manager.createCard(answer.name, answer.id, answer.email));
         branch();
     })
 }
