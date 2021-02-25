@@ -159,7 +159,7 @@ function internPath() {
 function finish() {
     // Finish off the HTML file
     const htmlFooter = `</div></body></html>`;
-    fs.writeFileSync('./dist/main.html', htmlFooter);
+    fs.appendFileSync('./dist/main.html', htmlFooter);
 }
 
 // Start the program
