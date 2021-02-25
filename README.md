@@ -4,7 +4,7 @@
 This project utilizes node.js, inquirer.js, and jest.js to create a command line tool that generates an HTML page with cards based on the user's input. The application will ask the user to enter information about a team manager and then ask for the user to either enter a new intern card or engineer card. This process repeats until the user decides to finish.
 
 ![Project example image](./assets/Example-Screenshot.png)
-[Project Example Video](./assets/VideoExample.mp4)
+[Project Example Video](./assets/ExampleVideo.mp4)
 
 ## Table of Contents
 * [Installation](#installation)
