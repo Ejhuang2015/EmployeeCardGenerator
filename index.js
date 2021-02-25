@@ -116,8 +116,8 @@ function start() {
 function managerPath() {
     inquirer.prompt(addManager).then(answer => {
         // Save the answer's to the manager HTML card
-        const manager = new Manager(answer.officeNum);
-        fs.appendFileSync('./dist/main.html', manager.createCard(answer.name, answer.id, answer.email));
+        const manager = new Manager(answer.name, answer.id, answer.email, answer.officeNum);
+        fs.appendFileSync('./dist/main.html', manager.createCard());
         branch();
     })
 }
@@ -139,8 +139,8 @@ function branch() {
 function engineerPath() {
     inquirer.prompt(addEngineer).then(answer => {
         // Save the answer's to an engineer HTML card
-        const engineer = new Engineer(answer.username);
-        fs.appendFileSync('./dist/main.html', engineer.createCard(answer.name, answer.id, answer.email));
+        const engineer = new Engineer(answer.name, answer.id, answer.email, answer.username);
+        fs.appendFileSync('./dist/main.html', engineer.createCard());
 
         branch();
     })
@@ -149,8 +149,8 @@ function engineerPath() {
 function internPath() {
     inquirer.prompt(addIntern).then(answer => {
         // Save the answer's to an intern HTML card
-        const intern = new Intern(answer.school);
-        fs.appendFileSync('./dist/main.html', intern.createCard(answer.name, answer.id, answer.email));
+        const intern = new Intern(answer.name, answer.id, answer.email, answer.school);
+        fs.appendFileSync('./dist/main.html', intern.createCard());
 
         branch();
     })
