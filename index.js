@@ -128,10 +128,10 @@ function branch() {
             engineerPath();
         }
         else if (answer.choice == "Intern") {
-            internPath;
+            internPath();
         }
         else {
-            finished();
+            finish();
         }
     })
 }
@@ -156,7 +156,7 @@ function internPath() {
     })
 }
 
-function finished() {
+function finish() {
     // Finish off the HTML file
     const htmlFooter = `</div></body></html>`;
     fs.writeFileSync('./dist/main.html', htmlFooter);
