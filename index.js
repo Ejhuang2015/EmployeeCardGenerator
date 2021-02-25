@@ -28,7 +28,7 @@ const addManager = [
     },
     {
         type: 'input',
-        name: 'office',
+        name: 'officeNum',
         message: "Enter the team's office number: ",
         default: "A-01",
     },
