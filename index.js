@@ -1,7 +1,8 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const Employee = require("./lib/Employee"); 
 const Manager = require("./lib/Manager"); 
+const Engineer = require("./lib/Engineer"); 
+const Intern = require("./lib/Intern"); 
 const { finished } = require("stream");
 
 
@@ -138,6 +139,9 @@ function branch() {
 function engineerPath() {
     inquirer.prompt(addEngineer).then(answer => {
         // Save the answer's to an engineer HTML card
+        const engineer = new Engineer(answer.username);
+        fs.appendFileSync('./dist/main.html', engineer.createCard(answer.name, answer.id, answer.email));
+
         branch();
     })
 }
@@ -145,6 +149,9 @@ function engineerPath() {
 function internPath() {
     inquirer.prompt(addIntern).then(answer => {
         // Save the answer's to an intern HTML card
+        const intern = new Intern(answer.school);
+        fs.appendFileSync('./dist/main.html', intern.createCard(answer.name, answer.id, answer.email));
+
         branch();
     })
 }
