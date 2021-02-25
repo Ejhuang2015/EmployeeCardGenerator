@@ -160,6 +160,7 @@ function finish() {
     // Finish off the HTML file
     const htmlFooter = `</div></body></html>`;
     fs.appendFileSync('./dist/main.html', htmlFooter);
+    console.log("Your team page has been created!");
 }
 
 // Start the program
